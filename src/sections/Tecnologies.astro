@@ -1,0 +1,100 @@
+---
+import SocialPill from "../components/SocialPill.astro";
+import AstroIcon from "../icons/AstroIcon.astro";
+import AWS from "../icons/AWS.astro";
+import Cshap from "../icons/Cshap.astro";
+import Dart from "../icons/Dart.astro";
+import Expo from "../icons/Expo.astro";
+import Firebase from "../icons/Firebase.astro";
+import Flutter from "../icons/Flutter.astro";
+import Git from "../icons/Git.astro";
+import JavaScript from "../icons/JavaScript.astro";
+import MongoDb from "../icons/MongoDb.astro";
+import Next from "../icons/Next.astro";
+import NodeJs from "../icons/NodeJs.astro";
+import ReactNative from "../icons/ReactNative.astro";
+import ReduxIcon from "../icons/ReduxIcon.astro";
+import SQL from "../icons/SQL.astro";
+import TypeScript from "../icons/TypeScript.astro";
+
+const TECNOLOGIES = [
+    {
+        name: "TypeScript",
+        icon: TypeScript,
+    },
+    {
+        name: "JavaScript",
+        icon: JavaScript,
+    },
+    {
+        name: "React Native",
+        icon: ReactNative,
+    },
+    {
+        name: "Expo",
+        icon: Expo,
+    },
+    {
+        name: "C#",
+        icon: Cshap,
+    },
+    {
+        name: "Dart",
+        icon: Dart,
+    },
+    {
+        name: "Flutter",
+        icon: Flutter,
+    },
+    {
+        name: "React",
+        icon: ReactNative,
+    },
+    {
+        name: "Next.JS",
+        icon: Next,
+    },
+    {
+        name: "Git",
+        icon: Git,
+    },
+    {
+        name: "SQL",
+        icon: SQL,
+    },
+    {
+        name: "AWS",
+        icon: AWS,
+    },
+    {
+        name: "Astro",
+        icon: AstroIcon,
+    },
+    {
+        name: "Redux",
+        icon: ReduxIcon,
+    },
+    {
+        name: "NodeJs",
+        icon: NodeJs,
+    },
+    {
+        name: "Firebase",
+        icon: Firebase,
+    },
+    {
+        name: "MongoDB",
+        icon: MongoDb,
+    },
+];
+---
+
+<div class="flex gap-4 flex-wrap">
+    {
+        TECNOLOGIES.map((tecnology) => (
+            <SocialPill>
+                <tecnology.icon class="size-4 md:size-6" /> {tecnology.name}
+            </SocialPill>
+        ))
+    }
+</div>

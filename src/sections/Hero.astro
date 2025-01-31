@@ -1,0 +1,35 @@
+---
+import Badge from "../components/Badge.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+---
+
+<SectionContainer id="top" class="pt-16 pb-12 md:pt-36 md:pb-10">
+    <div class="max-w-xl">
+        <div class="flex gap-4 mb-4">
+            <img
+                class="rounded-full shadow-lg size-16"
+                src="/mobilecraft3.png"
+                alt={"Mobile Craft"}
+            />
+            <a
+                href="https://www.linkedin.com/in/elder-moises-tavarez-4874b9151/"
+                target="_blank"
+                rel="noopener"
+                class="flex items-center transition md:justify-center md:hover:scale-105"
+            >
+                <Badge>Disponible para trabajar</Badge>
+            </a>
+        </div>
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl text-gray-100">
+            Hola, soy Elder Tavarez
+        </h1>
+        <p
+            class="mt-6 text-xl [&>strong]:text-teal-400 [&>strong]:font-semibold"
+        >
+            +5 años de experiencia. <strong
+                >Ingeniero de Software y Desarrollador de Aplicaciones Mobiles</strong
+            > de Respublica Dominicana 🇩🇴. Especializado en el desarrollo de aplicaciones
+            mobiles únicas.
+        </p>
+    </div>
+</SectionContainer>

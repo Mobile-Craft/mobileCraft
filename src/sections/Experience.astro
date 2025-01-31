@@ -1,0 +1,49 @@
+---
+import ExperienceItem from "../components/ExperienceItem.astro";
+import Briefcase from "../icons/Briefcase.astro";
+
+const EXPERIENCIE = [
+    {
+        date: "Actualmente...",
+        title: "Frontend Engineer",
+        company: "Banreservas",
+        description:
+            "Desarrollo de aplicaciones web y móviles con React, Next.js y React Native, utilizando tecnologías como Tailwind CSS, Styled Components, Redux, GraphQL, Apollo Client, entre otras.",
+        link: "https://LinkInLine.vercel.app/",
+    },
+    {
+        date: "April 2022",
+        title: "E-Commerce UI code in Tailwind CSS",
+        company: "Banreservas",
+        description:
+            "Get started with dozens of web components and interactive elements built on top of Tailwind CSS.",
+        link: "",
+    },
+    {
+        date: "April 2022",
+        title: "E-Commerce UI code in Tailwind CSS",
+        company: "Banreservas",
+        description:
+            "Get started with dozens of web components and interactive elements built on top of Tailwind CSS.",
+        link: "",
+    },
+];
+---
+
+<section id="experiencia">
+    <h2
+        class="text-3xl font-semibold pt-24 flex gap-x-3 items-center text-gray-100"
+    >
+        <Briefcase class="size-7" />
+        Experiencia laboral
+    </h2>
+    <ol class="relative border-s border-gray-200/40 ml-3 mt-8">
+        {
+            EXPERIENCIE.map((experiencie) => (
+                <li class="mb-10 ms-4">
+                    <ExperienceItem {...experiencie} />
+                </li>
+            ))
+        }
+    </ol>
+</section>

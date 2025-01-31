@@ -1,11 +1,32 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Badge from "../components/Badge.astro";
+import CardAnimate from "../components/CardAnimate.astro";
+import Briefcase from "../icons/Briefcase.astro";
+import TypeScript from "../icons/TypeScript.astro";
+import Layout from "../layouts/Layout.astro";
+import AbautMe from "../sections/AbautMe.astro";
 
+import Education from "../sections/Education.astro";
+import Experience from "../sections/Experience.astro";
+import Footer from "../sections/Footer.astro";
+import Hero from "../sections/Hero.astro";
+import Projects from "../sections/Projects.astro";
+import Tecnologies from "../sections/Tecnologies.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	pageTitle={"Portafolio Mobile Craft - Elder Moises Tavarez - Desarrollador Mobile"}
+	description={"Desarrollador Mobile y Web con mas de 5 años de experiencia. Especializado en crear aplicaciones únicas."}
+>
+	<main
+		class="px-4 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+	>
+		<Hero />
+		<Tecnologies />
+		<Experience />
+		<Projects />
+		<AbautMe />
+	</main>
 </Layout>
