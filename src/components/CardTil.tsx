@@ -45,7 +45,7 @@ const CardSpotlight = ({ children }: { children: React.ReactNode }) => {
             className='flex flex-col h-auto w-auto'
         >
             <div
-                className='pointer-events-none absolute -inset-px opacity-0 transition duration-300'
+                className='pointer-events-none absolute inset-px opacity-0 transition duration-300'
                 style={{
                     opacity,
                     background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(20, 90, 20, 0.3), transparent 40%)`,
