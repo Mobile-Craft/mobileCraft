@@ -50,7 +50,7 @@ const { description, pageTitle, url, image } = Astro.props;
 		> -->
 			<!-- </div> -->
 		</div>
-		<CardSpotlight client:visible>
+		<CardSpotlight client:load>
 			<Header />
 			<slot />
 			<SpeedInsights />
