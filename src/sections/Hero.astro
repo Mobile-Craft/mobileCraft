@@ -1,6 +1,7 @@
 ---
 import Badge from "../components/Badge.astro";
 import SectionContainer from "../components/SectionContainer.astro";
+import ExternalLink from "../icons/ExternalLink.astro";
 ---
 
 <SectionContainer id="top" class="pt-16 pb-12 md:pt-36 md:pb-10">
@@ -8,7 +9,7 @@ import SectionContainer from "../components/SectionContainer.astro";
         <div class="flex gap-4 mb-4">
             <img
                 class="rounded-full shadow-lg size-16"
-                src="/mobilecraft3.png"
+                src="/elderTavarez.png"
                 alt={"Mobile Craft"}
             />
             <a
@@ -17,7 +18,11 @@ import SectionContainer from "../components/SectionContainer.astro";
                 rel="noopener"
                 class="flex items-center transition md:justify-center md:hover:scale-105"
             >
-                <Badge>Disponible para trabajar</Badge>
+                <Badge
+                    >Disponible para trabajar &nbsp;<ExternalLink
+                        class="size-4"
+                    />
+                </Badge>
             </a>
         </div>
         <h1 class="text-4xl font-bold tracking-tight sm:text-5xl text-gray-100">

@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import "@fontsource-variable/jost";
 import Footer from "../sections/Footer.astro";
 import CardSpotlight from "../components/CardTil";
+import SpeedInsights from "@vercel/speed-insights/astro";
 const { description, pageTitle, url, image } = Astro.props;
 ---
 
@@ -12,14 +13,22 @@ const { description, pageTitle, url, image } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta
+			name="keywords"
+			content="developer, desarrollador, mobile, frontend, mobile developer"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<!-- Open Graph (Facebook, LinkedIn, etc.) -->
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={url} />
+		<meta
+			property="og:url"
+			content="https://eldertavarez.vercel.app/elderTavarez.png"
+		/>
 		<meta property="og:image" content={image} />
 
 		<!-- Twitter Cards -->
@@ -44,6 +53,7 @@ const { description, pageTitle, url, image } = Astro.props;
 		<CardSpotlight client:visible>
 			<Header />
 			<slot />
+			<SpeedInsights />
 			<Footer />
 		</CardSpotlight>
 
