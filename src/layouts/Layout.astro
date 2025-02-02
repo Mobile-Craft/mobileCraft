@@ -4,38 +4,27 @@ import "@fontsource-variable/jost";
 import Footer from "../sections/Footer.astro";
 import CardSpotlight from "../components/CardTil";
 import SpeedInsights from "@vercel/speed-insights/astro";
-const { description, pageTitle, url, image } = Astro.props;
+import SEO from "../components/SEO.astro";
+
+interface Props {
+	title: string;
+	description: string;
+	canonical?: string;
+	image?: string;
+}
+
+const { title, description, canonical, image } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="keywords"
-			content="developer, desarrollador, mobile, frontend, mobile developer"
+		<SEO
+			canonical={canonical}
+			description={description}
+			image={image}
+			title={title}
 		/>
-		<link rel="icon" type="image/svg+xml" href="/icon.svg" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<!-- Open Graph (Facebook, LinkedIn, etc.) -->
-		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={description} />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={url} />
-		<meta property="og:image" content={image} />
-
-		<!-- Twitter Cards -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={pageTitle} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={image} />
-
-		<!-- Canonical URL -->
-		<link rel="canonical" href={url} />
 	</head>
 	<body class="relative text-white">
 		<div
