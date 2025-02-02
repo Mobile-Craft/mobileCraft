@@ -5,14 +5,17 @@ import Experience from "../sections/Experience.astro";
 import Hero from "../sections/Hero.astro";
 import Projects from "../sections/Projects.astro";
 import Tecnologies from "../sections/Tecnologies.astro";
+
+const pageTitle = "Elder Tavárez - Desarrollador Mobile Portafolio";
+const description =
+	"Desarrollador Mobile y Web con mas de 5 años de experiencia especializado en tecnologías modernas como React Natieve, Expo, React, Flutter y Node.js.";
+const url = "https://eldertavarez.vercel.app/";
+const image = "./me.jpg";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout
-	pageTitle={"Portafolio Mobile Craft - Elder Moises Tavarez - Desarrollador Mobile"}
-	description={"Desarrollador Mobile y Web con mas de 5 años de experiencia. Especializado en crear aplicaciones únicas."}
->
+<Layout pageTitle={pageTitle} description={description} url={url} image={image}>
 	<main
 		class="px-4 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
 	>
