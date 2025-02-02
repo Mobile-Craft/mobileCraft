@@ -6,6 +6,7 @@ import Next from "../icons/Next.astro";
 import LinkButton from "../components/LinkButton.astro";
 import Briefcase from "../icons/Briefcase.astro";
 import SectionContainer from "../components/SectionContainer.astro";
+import CardSpotlight from "../components/CardTil";
 
 const TAGS = {
     NEXT: {
@@ -21,20 +22,36 @@ const TAGS = {
 };
 const PROJECTS = [
     {
-        title: "SVGL - A beautiful library with SVG logos",
+        title: "APORDOM - App infomativa de la Autoridad Portuaria Dominicana",
         description:
             "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
         link: "https://svgl.vercel.app/",
         github: "https://github.com/pheralb/svgl",
-        image: "/projects/apordom.webp",
+        image: "/projects/apordom2.webp",
         tags: [TAGS.NEXT, TAGS.TAILWIND],
     },
     {
-        title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+        title: "Mi Siembra - Retos de programación con JavaScript y TypeScript",
         description:
             "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
         link: "https://adventjs.dev",
         image: "/projects/apordom.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND],
+    },
+    {
+        title: "Siembra Mas - Retos de programación con JavaScript y TypeScript",
+        description:
+            "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+        link: "https://adventjs.dev",
+        image: "/projects/apordom-hover.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND],
+    },
+    {
+        title: "App Humano - Retos de programación con JavaScript y TypeScript",
+        description:
+            "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+        link: "https://adventjs.dev",
+        image: "/projects/apordom-hover.webp",
         tags: [TAGS.NEXT, TAGS.TAILWIND],
     },
 ];

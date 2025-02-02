@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import "@fontsource-variable/jost";
 import Footer from "../sections/Footer.astro";
+import CardSpotlight from "../components/CardTil";
 const { description, pageTitle } = Astro.props;
 ---
 
@@ -25,9 +26,11 @@ const { description, pageTitle } = Astro.props;
 		> -->
 			<!-- </div> -->
 		</div>
-		<Header />
-		<slot />
-		<Footer />
+		<CardSpotlight client:visible>
+			<Header />
+			<slot />
+			<Footer />
+		</CardSpotlight>
 
 		<style is:global>
 			:root {
