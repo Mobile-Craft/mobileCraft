@@ -1,6 +1,4 @@
 ---
-import jost from "@fontsource-variable/jost/files/jost-latin-wght-normal.woff2";
-
 import RichResults from "./RichResults.astro";
 
 interface Props {
@@ -14,7 +12,7 @@ const {
     title,
     description,
     canonical,
-    image = "https://eldertavarez.vercel.app/elderTavarez2.jpg",
+    image = "https://eldertavarez.vercel.app/elderTavarezLink.jpg",
 } = Astro.props as Props;
 
 const determineCanonicalURL = () => {
@@ -30,22 +28,20 @@ const canonicalURL = new URL(determineCanonicalURL(), Astro.site);
 <meta charset="UTF-8" />
 <meta name="description" content={description} />
 
-<link rel="preconnect" href="https://cdn.lavelada.dev" />
-
-<link rel="preload" href={jost} as="font" type="font/woff2" crossorigin />
+<link rel="preconnect" href="https://eldertavarez.vercel.app/" />
 
 <link rel="canonical" href={canonicalURL} />
 <meta name="viewport" content="width=device-width" />
-<meta name="theme-color" content="#d5ff00" />
+<meta name="theme-color" content="#1E1E1E" />
 
 <meta
     name="keywords"
-    content="velada, streamers, creadores, Ibai, boxeo, midudev"
+    content="developer, desarrollador, mobile, santo domingo, elder, tavarez, react native, react, contratar, frontend, web"
 />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@infoLaVelada" />
-<meta name="twitter:creator" content="@IbaiLlanos" />
+<meta name="twitter:site" content="@moisestavarez3" />
+<meta name="twitter:creator" content="@moisestavarez3" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={new URL(image, Astro.url)} />
@@ -54,7 +50,7 @@ const canonicalURL = new URL(determineCanonicalURL(), Astro.site);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:site_name" content="La Velada 4" />
+<meta property="og:site_name" content="Portafolio Elder Tavarez" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="es_ES" />
 
@@ -67,6 +63,4 @@ const canonicalURL = new URL(determineCanonicalURL(), Astro.site);
 <link rel="icon" type="image/svg+xml" href="/icon.svg" />
 <meta name="msapplication-config" content="/browserconfig.xml" />
 
-<script is:inline src="/registerSW.js"></script>
-<link rel="manifest" href="/manifest.webmanifest" />
 <RichResults />
