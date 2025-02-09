@@ -5,6 +5,7 @@ import AbautMe from "../sections/AbautMe.astro";
 import Experience from "../sections/Experience.astro";
 import Projects from "../sections/Projects.astro";
 import Tecnologies from "../sections/Tecnologies.astro";
+import CardSpotlight from "../components/CardTil";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -15,13 +16,15 @@ import Tecnologies from "../sections/Tecnologies.astro";
 	description="Contrata a Elder Tavarez para Desarrollador tus aplicaciones Mobile y Web, con mas de 5 años de experiencia especializado en tecnologías modernas como React Natieve, Expo, React, Flutter y Node.js, Frontend"
 	canonical="https://eldertavarez.vercel.app"
 >
-	<main
-		class="px-4 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
-	>
-		<Hero />
-		<Tecnologies />
-		<Experience />
-		<Projects />
-		<AbautMe />
-	</main>
+	<CardSpotlight client:load>
+		<main
+			class="px-4 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+		>
+			<Hero />
+			<Tecnologies />
+			<Experience />
+			<Projects />
+			<AbautMe />
+		</main>
+	</CardSpotlight>
 </Layout>

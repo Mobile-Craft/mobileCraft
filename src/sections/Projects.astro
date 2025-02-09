@@ -1,6 +1,6 @@
 ---
-import IOS from "../icons/IOS.astro";
-import Android from "../icons/Android.astro";
+import AppStore from "../icons/AppStore.astro";
+import PlayStore from "../icons/PlayStore.astro";
 import LinkButton from "../components/LinkButton.astro";
 import Briefcase from "../icons/Briefcase.astro";
 import SectionContainer from "../components/SectionContainer.astro";
@@ -9,11 +9,13 @@ import Firebase from "../icons/Firebase.astro";
 import Flutter from "../icons/Flutter.astro";
 import JavaScript from "../icons/JavaScript.astro";
 import Dart from "../icons/Dart.astro";
+import TypeScript from "../icons/TypeScript.astro";
+import Expo from "../icons/Expo.astro";
 
 const TAGS = {
     REACT_NATIVE: {
         name: "React Native",
-        class: "bg-cyan-800 text-white",
+        class: "bg-cyan-800/40 text-white",
         icon: ReactNative,
     },
     FLUTTER: {
@@ -28,48 +30,56 @@ const TAGS = {
     },
     JS: {
         name: "JavaScript",
-        class: "bg-orange-800 text-white",
+        class: "bg-neutral-500/80 text-white",
         icon: JavaScript,
+    },
+    TYPESCRIPT: {
+        name: "TypeScript",
+        class: "bg-cyan-900/50 text-white",
+        icon: TypeScript,
     },
     DART: {
         name: "DART",
         class: "bg-blue-600 text-white",
         icon: Dart,
     },
+    EXPO: {
+        name: "Expo",
+        class: "bg-slate-700/90 text-white",
+        icon: Expo,
+    },
 };
 
 const PROJECTS = [
     {
-        title: "APORDOM - App infomativa de la Autoridad Portuaria Dominicana",
+        title: "APORDOM - App  Autoridad Portuaria Dominicana",
         description:
-            "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-        link: "https://svgl.vercel.app/",
-        github: "https://github.com/pheralb/svgl",
-        image: "/projects/apordom2.webp",
-        tags: [TAGS.REACT_NATIVE, TAGS.FIREBASE],
+            "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desd +10k visitas al mes. +2K svgs descargados. Creado desd +10k visitas al mes. +2K se cero con Next.js, React y Tailwind CSS.",
+        ios: "https://apps.apple.com/do/app/autoridad-portuaria-dominicana/id6479921366?l=en-GB",
+        android:
+            "https://play.google.com/store/apps/details?id=com.solvex.apordom&pcampaignid=web_share",
+        image: "/projects/apordom.webp",
+        tags: [TAGS.REACT_NATIVE, TAGS.EXPO, TAGS.TYPESCRIPT],
     },
     {
         title: "Mi Siembra - Retos de programación con JavaScript y TypeScript",
         description:
             "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-        link: "https://adventjs.dev",
-        image: "/projects/apordom.webp",
-        tags: [TAGS.REACT_NATIVE, TAGS.FIREBASE],
+        ios: "https://apps.apple.com/do/app/mi-siembra/id1495099098?l=en-GB",
+        android:
+            "https://play.google.com/store/apps/details?id=com.appmovil.siembra&pcampaignid=web_share",
+        image: "/projects/siembra.webp",
+        tags: [TAGS.REACT_NATIVE, TAGS.TYPESCRIPT, TAGS.FIREBASE],
     },
-    {
-        title: "Siembra Mas - Retos de programación con JavaScript y TypeScript",
-        description:
-            "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-        link: "https://adventjs.dev",
-        image: "/projects/apordom-hover.webp",
-        tags: [TAGS.FLUTTER, TAGS.DART],
-    },
+
     {
         title: "App Humano - Retos de programación con JavaScript y TypeScript",
         description:
             "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-        link: "https://adventjs.dev",
-        image: "/projects/apordom-hover.webp",
+        ios: "https://apps.apple.com/do/app/humano/id905470413?l=en-GB",
+        android:
+            "https://play.google.com/store/apps/details?id=com.arshumano.app.android&pcampaignid=web_share",
+        image: "/projects/humano.webp",
         tags: [TAGS.REACT_NATIVE, TAGS.JS],
     },
 ];
@@ -85,7 +95,7 @@ const PROJECTS = [
         </h2>
         {
             PROJECTS.map(
-                ({ image, title, description, tags, link, github }) => (
+                ({ image, title, description, tags, ios, android }) => (
                     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
                         <div class="w-full md:w-1/2">
                             <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -107,9 +117,9 @@ const PROJECTS = [
                                     {tags.map((tag) => (
                                         <li>
                                             <span
-                                                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                                                class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2 `}
                                             >
-                                                <tag.icon class="size-4" />
+                                                <tag.icon class="size-5" />
                                                 {tag.name}
                                             </span>
                                         </li>
@@ -120,15 +130,15 @@ const PROJECTS = [
                                     {description}
                                 </div>
                                 <footer class="flex items-end justify-start mt-4 gap-x-4">
-                                    {github && (
-                                        <LinkButton href={github}>
-                                            <IOS class="size-6" />
+                                    {ios && (
+                                        <LinkButton href={ios}>
+                                            <AppStore class="w-4 h-4 mb-1" />
                                             IOS
                                         </LinkButton>
                                     )}
-                                    {link && (
-                                        <LinkButton href={link}>
-                                            <Android class="size-4" />
+                                    {android && (
+                                        <LinkButton href={android}>
+                                            <PlayStore class="size-4" />
                                             Android
                                         </LinkButton>
                                     )}
