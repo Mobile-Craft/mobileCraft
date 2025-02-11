@@ -7,8 +7,9 @@ export interface Props {
     date: string;
     description: string;
     link?: string;
+    modalidad?: string;
 }
-const { title, date, description, link, company } = Astro.props;
+const { title, date, description, link, company, modalidad } = Astro.props;
 ---
 
 <div
@@ -29,6 +30,7 @@ const { title, date, description, link, company } = Astro.props;
                 {company}
             </h4>
             <time class="p-0 m-0 text-sm text-white/80">{date}</time>
+            <h4 class="p-0 m-0 text-sm text-white/80">{modalidad}</h4>
         </div>
     </div>
     <div class="relative flex flex-col gap-2 pb-4 text-gray-300 md:col-span-3">
