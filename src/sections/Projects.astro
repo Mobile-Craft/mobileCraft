@@ -11,6 +11,8 @@ import JavaScript from "../icons/JavaScript.astro";
 import Dart from "../icons/Dart.astro";
 import TypeScript from "../icons/TypeScript.astro";
 import Expo from "../icons/Expo.astro";
+import LetterGlitch from "../components/LetterGlitch";
+import CardBorderAnimate from "../components/CardBorderAnimate.astro";
 
 const TAGS = {
     REACT_NATIVE: {
@@ -54,7 +56,7 @@ const PROJECTS = [
     {
         title: "APORDOM - App  Autoridad Portuaria Dominicana",
         description:
-            "Aplicacion Informativa de la Autoridad Portuaria de Republica Dominica la cual permite a los usuarios saber los costos de los puertos y cargas y poder calcularla en la misma APP",
+            "Esta aplicación es una herramienta indispensable para agilizar los tramites portuarios, conocer los puertos, su ubicación y mantenerte informado de las ultimas noticias de los puertos de Republica Dominicana",
         ios: "https://apps.apple.com/do/app/autoridad-portuaria-dominicana/id6479921366?l=en-GB",
         android:
             "https://play.google.com/store/apps/details?id=com.solvex.apordom&pcampaignid=web_share",
@@ -64,7 +66,7 @@ const PROJECTS = [
     {
         title: "Mi Siembra - App para administar tu fondo de pensiones",
         description:
-            "Con esta aplicación tendrás la facilidad de consultar, desde cualquier lugar, el balance de tu Cuenta de Pensión, actualizar tus datos personales, activar los servicios de notificación de balance y aportes y otros servicios más.",
+            "Esta aplicación te brinda la facilidad de consultar, desde cualquier lugar, el balance de tu Cuenta de Pensión, invertir en tu fondo de pensión, canjear ofertas de aliados segun tu ubicación, tambien cuenta con el servicios de notificación de balance y aportes y otros servicios más.",
         ios: "https://apps.apple.com/do/app/mi-siembra/id1495099098?l=en-GB",
         android:
             "https://play.google.com/store/apps/details?id=com.appmovil.siembra&pcampaignid=web_share",
@@ -75,12 +77,21 @@ const PROJECTS = [
     {
         title: "App Humano",
         description:
-            "App humano es la aplicación que te permite acceder a los servicios de Humano que te permite Realizar consultas medicas de forma virtual, pagar polizas de seguros y solicitar medicamentos en tu ubicación",
+            "Esta aplicación te permite acceder a los servicios de Humano para Realizar consultas medicas de forma virtual, pagar polizas de seguros y solicitar medicamentos en tu ubicación y solicitar autorizacion de procedimientos medicos",
         ios: "https://apps.apple.com/do/app/humano/id905470413?l=en-GB",
         android:
             "https://play.google.com/store/apps/details?id=com.arshumano.app.android&pcampaignid=web_share",
         image: "/projects/humano.webp",
         tags: [TAGS.REACT_NATIVE, TAGS.JS],
+    },
+    {
+        title: "Proximamente",
+        description:
+            "Esta aplicacion estara publicada proximamente y sera algo muy JEVI Literalmente",
+        ios: "",
+        android: "",
+        image: "glitch",
+        tags: [TAGS.REACT_NATIVE, TAGS.EXPO],
     },
 ];
 ---
@@ -98,14 +109,28 @@ const PROJECTS = [
                 ({ image, title, description, tags, ios, android }) => (
                     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
                         <div class="w-full md:w-1/2">
-                            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                                <img
-                                    alt="Recién llegado vs 5 años en Nueva Zelanda"
-                                    class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-                                    loading="lazy"
-                                    src={image}
-                                />
-                            </div>
+                            {image !== "glitch" ? (
+                                <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                                    <img
+                                        alt={title}
+                                        class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                                        loading="lazy"
+                                        src={image}
+                                    />
+                                </div>
+                            ) : (
+                                <div class="md:h-[275px] h-full w-full relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                                    <CardBorderAnimate>
+                                        <LetterGlitch
+                                            client:load
+                                            glitchSpeed={50}
+                                            centerVignette={true}
+                                            outerVignette={false}
+                                            smooth={true}
+                                        />
+                                    </CardBorderAnimate>
+                                </div>
+                            )}
                         </div>
 
                         <div class="w-full md:w-1/2 md:max-w-lg">
@@ -126,7 +151,7 @@ const PROJECTS = [
                                     ))}
                                 </ul>
 
-                                <div class="mt-2 text-gray-700 dark:text-gray-400">
+                                <div class="mt-2 text-gray-700 dark:text-gray-400 line-clamp-4">
                                     {description}
                                 </div>
                                 <footer class="flex items-end justify-start mt-4 gap-x-4">
@@ -151,3 +176,11 @@ const PROJECTS = [
         }
     </div>
 </SectionContainer>
+
+<!-- <LetterGlitch
+    client:load
+    glitchSpeed={50}
+    centerVignette={true}
+    outerVignette={false}
+    smooth={true}
+/> -->
