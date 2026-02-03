@@ -1,7 +1,8 @@
 {
   "recommendations": [
     "astro-build.astro-vscode",
-    "brandonkirbyson.vscode-animations"
+    "brandonkirbyson.vscode-animations",
+    "bradlc.vscode-tailwindcss"
   ],
   "unwantedRecommendations": []
 }
