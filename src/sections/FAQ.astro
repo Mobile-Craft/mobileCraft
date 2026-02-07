@@ -1,0 +1,56 @@
+---
+import SectionContainer from "../components/SectionContainer.astro";
+import { faqEntries } from "../data/faqs";
+---
+
+<SectionContainer id="faq" class="pt-24 pb-16">
+    <h2 class="text-3xl font-semibold text-gray-100">Preguntas frecuentes sobre desarrollo de apps móviles</h2>
+    <p class="mt-4 text-base text-gray-300">
+        Respuestas rápidas para empresas que buscan un desarrollador de aplicaciones móviles, consultoría React Native y soporte integral en República Dominicana.
+    </p>
+    <div class="mt-10 space-y-4">
+        {
+            faqEntries.map(({ answer, question }, index) => (
+                <details
+                    class="group rounded-2xl border border-white/5 bg-gray-900/40 shadow-lg transition focus-within:border-teal-400 focus:outline-none group-open:border-teal-400/60"
+                    open={index === 0}
+                >
+                    <summary class="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-teal-300">
+                        <span>{question}</span>
+                        <span class="flex items-center" aria-hidden="true">
+                            <span class="flex size-6 items-center justify-center rounded-full border border-teal-400 bg-teal-400/10 text-sm text-teal-200 transition group-open:hidden">
+                                ▼
+                            </span>
+                            <span class="hidden size-6 items-center justify-center rounded-full border border-teal-400 bg-teal-200/10 text-sm text-teal-900 transition group-open:flex">
+                                ▲
+                            </span>
+                        </span>
+                    </summary>
+                    <div class="faq-panel">
+                        <div class="faq-panel-content px-6 pb-6 text-base text-gray-200">
+                            {answer}
+                        </div>
+                    </div>
+                </details>
+            ))
+        }
+    </div>
+</SectionContainer>
+
+<style>
+    details .faq-panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease;
+        opacity: 0;
+    }
+
+    details[open] .faq-panel {
+        opacity: 1;
+        grid-template-rows: 1fr;
+    }
+
+    .faq-panel-content {
+        overflow: hidden;
+    }
+</style>

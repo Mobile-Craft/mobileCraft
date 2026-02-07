@@ -1,91 +1,89 @@
 ---
-/** https://developers.google.com/search/docs/appearance/structured-data/organization */
-const organizationSchema = {
+import { faqEntries } from "../data/faqs";
+
+/** https://developers.google.com/search/docs/appearance/structured-data/person */
+const personSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "Person",
+    name: "Elder Tavárez",
+    alternateName: "Elder Tavarez",
     url: "https://eldertavarez.vercel.app/",
     image: "https://eldertavarez.vercel.app/elderTavarezLink.jpg",
+    jobTitle: "Desarrollador de aplicaciones móviles y especialista React Native",
+    worksFor: {
+        "@type": "Organization",
+        name: "Mobile Craft",
+    },
     sameAs: [
-        "https://www.instagram.com/moisestavarezgo",
+        "https://www.linkedin.com/in/elder-moises-tavarez-4874b9151/",
+        "https://github.com/Mobile-Craft",
         "https://x.com/moisestavarez3",
-        "https://github.com/Mobile-Craft/mobileCraft",
+        "https://www.instagram.com/moisestavarezgo",
     ],
-    logo: "https://eldertavarez.vercel.app/elderTavarezLink.jpg",
-    name: "Portafolio Elder Tavarez",
-    alternateName: "Elder Tavarez",
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Santo Domingo",
+        addressRegion: "Distrito Nacional",
+        addressCountry: "DO",
+    },
+    knowsAbout: [
+        "Desarrollo de aplicaciones móviles",
+        "React Native",
+        "Expo",
+        "Flutter",
+        "Node.js",
+    ],
     description:
-        "Contrata a Elder Tavarez para Desarrollador tus aplicaciones Mobile y Web, con mas de 5 años de experiencia especializado en tecnologías modernas como React Natieve, Expo, React, Flutter y Node.js, Frontend",
+        "Elder Tavárez es desarrollador de aplicaciones móviles con más de cinco años creando soluciones en React Native, Expo y Flutter para empresas en República Dominicana.",
 };
 
-/** https://developers.google.com/search/docs/appearance/structured-data/event */
-const eventSchema = {
+/** https://developers.google.com/search/docs/appearance/structured-data/service */
+const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Event",
-    name: "Portafolio Elder Tavarez",
-    eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode", // https://schema.org/EventAttendanceModeEnumeration
-    eventStatus: "https://schema.org/EventScheduled", // https://schema.org/EventStatusType
-    location: {
-        "@type": "Place",
-        name: "Santo Domingo República Dominicana",
-        address: {
-            "@type": "PostalAddress",
-            streetAddress: "Santo Domingo",
-            addressLocality: "Distrito Nacional",
-            postalCode: "11901",
-            addressRegion: "Distrito Nacional",
-            addressCountry: "ES",
+    "@type": "Service",
+    name: "Desarrollo de aplicaciones móviles React Native",
+    serviceType: "Mobile App Development",
+    provider: {
+        "@type": "Person",
+        name: "Elder Tavárez",
+        url: "https://eldertavarez.vercel.app/",
+    },
+    areaServed: {
+        "@type": "AdministrativeArea",
+        name: "República Dominicana",
+    },
+    offers: {
+        "@type": "Offer",
+        availability: "https://schema.org/InStock",
+        priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "USD",
+            price: "0",
+            description: "Cotización personalizada para desarrollo de aplicaciones móviles iOS y Android.",
         },
     },
-    image: ["https://eldertavarez.vercel.app/elderTavarezLink.jpg"],
     description:
-        "Portafolio de Elder Tavárez - Desarrollador y Programador Mobile y Web donde muestra su esperiencia y proyectos realizados",
-    /* "offers": {}, // Añadir cuando las entradas estén disponibles https://schema.org/Offer */
-
-    organizer: {
-        "@type": "Person",
-        name: "Elder Tavarez",
-        url: "https://www.instagram.com/moisestavarezgo",
-    },
+        "Servicio profesional de desarrollo de aplicaciones móviles iOS y Android con React Native, integración de APIs, despliegues en App Store y Google Play.",
 };
-
-const FAQs = [
-    {
-        question: "¿Desarrollador mobile en santo domingo?",
-    },
-    {
-        question: "¿Desarrolldor frontend en santo domingo?",
-        answer: "Elder Tavarez <strong>+5 años de experiencia</strong> en el desarrollo de aplicaciones web y móviles",
-    },
-    {
-        question: "¿Desarrollador mobile?",
-        answer: "Elder Tavarez <strong>+5 años de experiencia</strong> en el desarrollo de aplicaciones web y móviles",
-    },
-    {
-        question: "¿Necesito crear una aplicacion mobil?",
-        answer: "Elder Tavarez <strong>+5 años de experiencia</strong> en el desarrollo de aplicaciones web y móviles",
-    },
-];
 
 /** https://developers.google.com/search/docs/appearance/structured-data/faqpage */
 const FAQSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-        FAQs.map(({ answer, question }) => ({
-            "@type": "Question",
-            name: question,
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: answer,
-            },
-        })),
-    ],
+    mainEntity: faqEntries.map(({ answer, question }) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: answer,
+        },
+    })),
 };
 ---
 
 <script
     type="application/ld+json"
-    set:html={JSON.stringify(organizationSchema)}
+    set:html={JSON.stringify(personSchema)}
 />
-<script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(FAQSchema)} />

@@ -56,33 +56,48 @@ const PROJECTS = [
     {
         title: "APORDOM - App  Autoridad Portuaria Dominicana",
         description:
-            "Esta aplicación es una herramienta indispensable para agilizar los tramites portuarios, conocer los puertos, su ubicación y mantenerte informado de las ultimas noticias de los puertos de Republica Dominicana",
+            "Aplicación oficial para la Autoridad Portuaria Dominicana que centraliza noticias marítimas, mapas interactivos y trámites digitales para operadores y ciudadanos.",
         ios: "https://apps.apple.com/do/app/autoridad-portuaria-dominicana/id6479921366?l=en-GB",
         android:
             "https://play.google.com/store/apps/details?id=com.solvex.apordom&pcampaignid=web_share",
         image: "/projects/apordom.webp",
         tags: [TAGS.REACT_NATIVE, TAGS.EXPO, TAGS.TYPESCRIPT],
+        results: [
+            "Publicación simultánea en App Store y Google Play con distribución nacional",
+            "Integración de Google Maps y notificaciones push con tiempos de carga inicial inferiores a 3 s",
+            "Panel editorial autogestionable para noticias y alertas en tiempo real",
+        ],
     },
     {
         title: "Mi Siembra - App para administar tu fondo de pensiones",
         description:
-            "Esta aplicación te brinda la facilidad de consultar, desde cualquier lugar, el balance de tu Cuenta de Pensión, invertir en tu fondo de pensión, canjear ofertas de aliados segun tu ubicación, tambien cuenta con el servicios de notificación de balance y aportes y otros servicios más.",
+            "Aplicación móvil para AFP Siembra que permite consultar balance, invertir aportes y acceder a beneficios personalizados con geolocalización.",
         ios: "https://apps.apple.com/do/app/mi-siembra/id1495099098?l=en-GB",
         android:
             "https://play.google.com/store/apps/details?id=com.appmovil.siembra&pcampaignid=web_share",
         image: "/projects/siembra.webp",
         tags: [TAGS.REACT_NATIVE, TAGS.TYPESCRIPT, TAGS.FIREBASE],
+        results: [
+            "Autenticación reforzada con biometría y TOTP para decenas de miles de afiliados",
+            "Optimización de journeys críticos con tiempos de respuesta < 2 s",
+            "Implementación de notificaciones segmentadas y tablero de métricas en Firebase",
+        ],
     },
 
     {
         title: "App Humano",
         description:
-            "Esta aplicación te permite acceder a los servicios de Humano para Realizar consultas medicas de forma virtual, pagar polizas de seguros y solicitar medicamentos en tu ubicación y solicitar autorizacion de procedimientos medicos",
+            "Solución mobile para Grupo Humano con consultas virtuales, pagos de pólizas y gestión de autorizaciones médicas desde el móvil.",
         ios: "https://apps.apple.com/do/app/humano/id905470413?l=en-GB",
         android:
             "https://play.google.com/store/apps/details?id=com.arshumano.app.android&pcampaignid=web_share",
         image: "/projects/humano.webp",
         tags: [TAGS.REACT_NATIVE, TAGS.JS],
+        results: [
+            "Rediseño de flujos críticos con disminución de incidencias reportadas por soporte",
+            "Integración de pagos y geolocalización de farmacias con seguridad reforzada",
+            "Monitoreo continuo con Firebase Performance para garantizar sesiones estables",
+        ],
     },
     {
         title: "Proximamente",
@@ -92,6 +107,11 @@ const PROJECTS = [
         android: "",
         image: "glitch",
         tags: [TAGS.REACT_NATIVE, TAGS.EXPO],
+        results: [
+            "Discovery en curso con definición de KPIs de retención y monetización",
+            "Arquitectura base lista para integraciones escalables en React Native",
+            "Lanzamiento piloto programado con pruebas de usabilidad en Q2 2026",
+        ],
     },
 ];
 ---
@@ -151,9 +171,17 @@ const PROJECTS = [
                                     ))}
                                 </ul>
 
-                                <div class="mt-2 text-gray-700 dark:text-gray-400 line-clamp-4">
+                                <div class="mt-2 text-gray-700 dark:text-gray-300">
                                     {description}
                                 </div>
+                                {/* <ul class="mt-4 space-y-2 text-sm text-gray-300">
+                                    {results?.map((item) => (
+                                        <li class="flex items-start gap-2">
+                                            <span class="mt-1 size-1.5 rounded-full bg-teal-400"></span>
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul> */}
                                 <footer class="flex items-end justify-start mt-4 gap-x-4">
                                     {ios && (
                                         <LinkButton href={ios}>
