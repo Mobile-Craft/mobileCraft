@@ -1,0 +1,36 @@
+.footer {
+  border-top: 1px solid var(--border);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  padding-block: 28px;
+}
+
+.copy {
+  font-size: 13px;
+  color: var(--faint);
+  overflow-wrap: anywhere;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--faint);
+  overflow-wrap: anywhere;
+  transition: color var(--dur-base) ease;
+}
+
+.link:hover {
+  color: var(--accent);
+}

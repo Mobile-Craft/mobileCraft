@@ -1,0 +1,29 @@
+.heading {
+  margin-bottom: clamp(24px, 4vw, 38px);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: clamp(28px, 5vw, 44px);
+  letter-spacing: -0.034em;
+  margin-bottom: 14px;
+}
+
+.title:last-child {
+  margin-bottom: 0;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--dim);
+  max-width: 58ch;
+}

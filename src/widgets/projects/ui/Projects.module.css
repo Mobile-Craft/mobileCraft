@@ -1,0 +1,16 @@
+.head {
+  margin-bottom: clamp(22px, 4vw, 38px);
+}
+
+.title {
+  font-size: clamp(28px, 5.2vw, 44px);
+  letter-spacing: -0.034em;
+  max-width: 24ch;
+  margin-top: 12px;
+}
+
+.grid {
+  display: grid;
+  gap: clamp(16px, 2.4vw, 26px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr));
+}

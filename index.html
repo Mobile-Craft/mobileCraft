@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#111318" />
+
+    <title>Elder Tavárez — Ingeniero de Software Móvil | React Native &amp; Flutter</title>
+    <meta
+      name="description"
+      content="Ingeniero de software con más de 6 años desarrollando y liderando aplicaciones móviles en React Native y Flutter para banca, pensiones, seguros y sector público en República Dominicana. Apps en producción en iOS y Android."
+    />
+
+    <!--
+      Canónica y alternativas de idioma. El idioma viaja en `?lang=` para que la
+      versión traducida se pueda compartir tal cual; `I18nProvider` reescribe
+      estas etiquetas al conmutar.
+    -->
+    <link rel="canonical" href="https://eldertavarez.dev/" />
+    <link rel="alternate" hreflang="es-DO" href="https://eldertavarez.dev/" />
+    <link rel="alternate" hreflang="en" href="https://eldertavarez.dev/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://eldertavarez.dev/" />
+
+    <!--
+      Open Graph con URLs absolutas: una ruta relativa hace que LinkedIn,
+      WhatsApp y Slack rendericen el enlace sin imagen, que es justo el canal
+      por el que se comparte un portafolio.
+    -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Elder Tavárez" />
+    <meta property="og:url" content="https://eldertavarez.dev/" />
+    <meta
+      property="og:title"
+      content="Elder Tavárez — Ingeniero de Software Móvil | React Native &amp; Flutter"
+    />
+    <meta
+      property="og:description"
+      content="Ingeniero de software con más de 6 años desarrollando y liderando aplicaciones móviles en React Native y Flutter para banca, pensiones, seguros y sector público en República Dominicana. Apps en producción en iOS y Android."
+    />
+    <meta property="og:locale" content="es_DO" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://eldertavarez.dev/assets/og-cover.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Elder Tavárez — Ingeniero de Software Móvil. React Native y Flutter para Banreservas, AFP Siembra, Humano y APORDOM."
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Elder Tavárez — Ingeniero de Software Móvil | React Native &amp; Flutter"
+    />
+    <meta
+      name="twitter:description"
+      content="React Native · Flutter · TypeScript. Apps en producción para Banreservas, AFP Siembra, Humano y APORDOM."
+    />
+    <meta name="twitter:image" content="https://eldertavarez.dev/assets/og-cover.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Elder Tavárez — Ingeniero de Software Móvil. React Native y Flutter para Banreservas, AFP Siembra, Humano y APORDOM."
+    />
+
+    <!--
+      Datos estructurados. Es lo que permite a un buscador entender que la
+      página describe a una persona concreta, con qué trabaja y dónde más
+      existe, en vez de tratarla como texto suelto.
+      La forma se verifica en `src/shared/config/site.test.ts`, que compara
+      estas etiquetas con `PROFILE` para que no se desincronicen.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Elder Moisés Tavárez",
+        "alternateName": "Elder Tavárez",
+        "url": "https://eldertavarez.dev/",
+        "image": "https://eldertavarez.dev/assets/elder.jpg",
+        "jobTitle": "Ingeniero de Software Móvil",
+        "description": "Ingeniero de software con más de 6 años desarrollando y liderando aplicaciones móviles en React Native y Flutter para banca, pensiones, seguros y sector público.",
+        "email": "mailto:moisestavarez20@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santo Domingo",
+          "addressCountry": "DO"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad Tecnológica de Santiago (UTESA)"
+        },
+        "knowsLanguage": ["es", "en"],
+        "knowsAbout": [
+          "React Native",
+          "Flutter",
+          "Dart",
+          "TypeScript",
+          "Desarrollo de aplicaciones móviles",
+          "iOS",
+          "Android",
+          "Arquitectura de software",
+          "Seguridad móvil",
+          "Liderazgo técnico"
+        ],
+        "sameAs": ["https://www.linkedin.com/in/elder-moises-tavarez-4874b9151/"]
+      }
+    </script>
+
+    <!--
+      Las fuentes se cargan sin bloquear el render: `preload` las pide con
+      prioridad alta y el `onload` las promueve a hoja de estilos ya descargada.
+      Con `display=swap` el texto se pinta en la fuente de respaldo y cambia al
+      llegar la definitiva, en lugar de dejar la página en blanco esperándola.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
+
+    <!-- Analítica sin cookies ni datos personales: no necesita banner de consentimiento. -->
+    <script defer data-domain="eldertavarez.dev" src="https://plausible.io/js/script.js"></script>
+
+    <script>
+      /*
+       * Script de arranque: resuelve tema e idioma antes del primer paint, para
+       * que no haya flash de color ni un lector de pantalla anunciando el
+       * idioma equivocado.
+       *
+       * Es el ÚNICO sitio donde se decide el idioma. React lee el resultado de
+       * `<html lang>` en vez de repetir la regla: cuando estaba duplicada, las
+       * dos copias usaban heurísticas distintas y podían discrepar.
+       *
+       * Prioridad: `?lang=` (enlace compartido) > preferencia guardada >
+       * idioma del navegador > español.
+       */
+      (function () {
+        var doc = document.documentElement;
+
+        function stored(key) {
+          try {
+            return localStorage.getItem(key);
+          } catch (e) {
+            return null; // modo privado: se usan los valores por defecto
+          }
+        }
+
+        var theme = stored('et-theme') === 'light' ? 'light' : 'dark';
+        doc.dataset.theme = theme;
+        doc.style.colorScheme = theme;
+
+        var lang = null;
+        try {
+          lang = new URLSearchParams(location.search).get('lang');
+        } catch (e) {
+          /* URL malformada: se sigue con el resto de la cadena */
+        }
+
+        if (lang !== 'es' && lang !== 'en') lang = stored('et-lang');
+
+        if (lang !== 'es' && lang !== 'en') {
+          var preferred = navigator.languages || [navigator.language || 'es'];
+          lang = 'es';
+          for (var i = 0; i < preferred.length; i++) {
+            var base = String(preferred[i]).toLowerCase().split('-')[0];
+            if (base === 'es' || base === 'en') {
+              lang = base;
+              break;
+            }
+          }
+        }
+
+        doc.lang = lang;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

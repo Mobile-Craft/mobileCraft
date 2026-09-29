@@ -1,0 +1,24 @@
+.group {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 20px;
+  padding: clamp(18px, 2.6vw, 24px);
+  height: 100%;
+  transition: border-color var(--dur-base) ease;
+}
+
+.group:hover {
+  border-color: var(--accent);
+}
+
+.groupTitle {
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}

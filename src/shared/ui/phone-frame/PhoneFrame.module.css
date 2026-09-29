@@ -1,0 +1,42 @@
+.frame {
+  position: relative;
+  width: var(--phone-width, 250px);
+  aspect-ratio: 9 / 19.2;
+  border-radius: var(--phone-radius, 34px);
+  padding: var(--phone-bezel, 9px);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--phone-radius, 34px) - var(--phone-bezel, 9px) - 1px);
+  background: var(--surface-2);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+/* Cualquier imagen que se pase como pantalla llena el visor sin recortarse. */
+.screen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  translate: -50% 0;
+  width: 78px;
+  height: 23px;
+  border-radius: 999px;
+  background: oklch(0.12 0.01 260);
+}

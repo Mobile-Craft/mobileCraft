@@ -1,0 +1,19 @@
+.logo {
+  display: block;
+  width: auto;
+  height: 1.6em;
+}
+
+.bracket {
+  fill: var(--faint);
+}
+
+/* La E hereda el color del texto: blanca en oscuro, tinta en claro. */
+.ink {
+  fill: currentColor;
+}
+
+/* La T sigue el acento activo, como el resto de la interfaz. */
+.accent {
+  fill: var(--accent);
+}

@@ -1,0 +1,244 @@
+.card {
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.dots {
+  display: flex;
+  gap: 7px;
+}
+
+.dots > span {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+}
+
+.dots > span:nth-child(1) {
+  background: oklch(0.68 0.19 22);
+}
+.dots > span:nth-child(2) {
+  background: oklch(0.82 0.16 88);
+}
+.dots > span:nth-child(3) {
+  background: oklch(0.78 0.18 145);
+}
+
+.filename {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--faint);
+}
+
+.code {
+  margin: 0;
+  padding: clamp(18px, 2.6vw, 26px) clamp(16px, 2.4vw, 26px);
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.35vw, 14px);
+  line-height: 2.05;
+  overflow-x: auto;
+}
+
+.indent {
+  padding-left: 22px;
+}
+
+.spacer {
+  height: 14px;
+}
+
+.punct {
+  color: var(--dim);
+}
+.keyword {
+  color: var(--code-keyword);
+}
+.type {
+  color: var(--code-type);
+}
+.prop {
+  color: var(--code-prop);
+}
+.string {
+  color: var(--code-string);
+}
+.number {
+  color: var(--code-number);
+}
+.comment {
+  color: var(--faint);
+}
+
+.caret {
+  display: inline-block;
+  width: 8px;
+  margin-left: 2px;
+  border-bottom: 2px solid var(--accent);
+  animation: et-caret 1.1s step-end infinite;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.compile {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  transition: filter var(--dur-fast) ease;
+}
+
+.compile:hover {
+  filter: brightness(1.06);
+}
+
+.progressWrap {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.status {
+  margin: 0 0 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: var(--accent);
+  transform-origin: 0 50%;
+}
+
+.pct {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.reveal {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+
+.revealInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 18px clamp(16px, 2.4vw, 26px);
+}
+
+.portrait {
+  width: 78px;
+  height: 78px;
+  flex: 0 0 auto;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--border);
+}
+
+.identity {
+  min-width: 0;
+}
+
+.identityName {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.identityRole {
+  margin: 0 0 9px;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.identityChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chipAccent {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+@keyframes et-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Salida real del build: se lee como una línea de terminal, no como una tarjeta. */
+.build {
+  display: grid;
+  gap: 3px;
+  /* Mismo canal lateral que `.revealInner`, del que es hermano. */
+  padding: 12px clamp(16px, 2.4vw, 26px) 18px;
+  border-top: 1px dashed var(--border);
+}
+
+.buildLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 2px;
+}
+
+.buildValue {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--dim);
+  overflow-wrap: anywhere;
+}

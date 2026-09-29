@@ -1,0 +1,5 @@
+.magnetic {
+  display: inline-flex;
+  /* El hijo se mueve dentro del área; el contenedor mantiene el hit-target. */
+  will-change: transform;
+}

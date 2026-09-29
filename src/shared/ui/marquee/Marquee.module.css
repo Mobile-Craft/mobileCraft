@@ -1,0 +1,60 @@
+.viewport {
+  overflow: hidden;
+  /* Difumina los bordes para que las entradas y salidas no se corten en seco. */
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: et-marquee var(--marquee-duration, 38s) linear infinite;
+  will-change: transform;
+}
+
+.viewport:hover .track,
+.viewport:focus-within .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3.4vw, 40px);
+  padding-right: clamp(16px, 3.4vw, 40px);
+}
+
+.item {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--dim);
+  white-space: nowrap;
+  transition: color var(--dur-base) ease;
+}
+
+.item:hover {
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    flex-wrap: wrap;
+  }
+  /* Sin movimiento las copias sólo repetirían los nombres. */
+  .group:not(:first-child) {
+    display: none;
+  }
+}
+
+@keyframes et-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* El salto es de un grupo; la cinta decide la fracción según cuántas copias
+       hicieron falta para cubrir la pantalla. */
+    transform: translateX(var(--marquee-shift, -50%));
+  }
+}

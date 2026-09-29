@@ -1,0 +1,40 @@
+.card {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--accent);
+}
+
+/* Halo que sigue al cursor. Sólo opacidad y posición: nada de layout. */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    260px circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    var(--accent-soft),
+    transparent 70%
+  );
+  transition: opacity 260ms ease;
+}
+
+.card:hover .spotlight,
+.card:focus-within .spotlight {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .spotlight {
+    display: none;
+  }
+}

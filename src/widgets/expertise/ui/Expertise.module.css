@@ -1,0 +1,21 @@
+.card {
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.title {
+  font-size: clamp(19px, 2.4vw, 22px);
+  letter-spacing: -0.024em;
+  margin: 10px 0 12px;
+}
+
+.body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--dim);
+}

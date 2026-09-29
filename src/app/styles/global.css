@@ -1,0 +1,239 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /*
+   * El ancla no debe quedar debajo de la barra fija. Sale del mismo token que
+   * dimensiona la barra, en vez de un número copiado que se desincroniza en
+   * cuanto cambia el alto del navbar.
+   */
+  scroll-padding-top: calc(var(--nav-h) + 20px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  text-wrap: pretty;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease;
+}
+
+body[data-scroll-locked='true'] {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p,
+ul,
+ol,
+dl,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--dur-base) ease;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Un solo anillo de foco para toda la app, siempre visible sobre cualquier superficie. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Barras de scroll discretas dentro de paneles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* ---- Utilidades ---- */
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Enlace de salto: invisible hasta que recibe foco por teclado. */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/*
+ * Los `@keyframes` viven en el CSS Module que los usa, no aquí.
+ * CSS Modules reescribe el `animation-name` de cada módulo a un identificador
+ * con hash; si los fotogramas se declaran en este archivo global el nombre
+ * nunca coincide y la animación queda muerta sin dar ningún error.
+ */
+
+/**
+ * Respeto de `prefers-reduced-motion`.
+ *
+ * Framer Motion se desactiva por su cuenta vía MotionConfig (ver App.tsx);
+ * aquí solo neutralizamos las animaciones declaradas en CSS.
+ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Layout de secciones ----
+   Clases globales porque las comparten todas las secciones; lo específico de
+   cada una vive en su propio CSS Module. */
+
+/*
+ * La sección ocupa todo el ancho y el contenido se centra con padding, en vez
+ * de con `max-width` + `margin: auto`. Así los fondos decorativos pueden ser
+ * `inset-inline: 0` y llegar siempre al borde de la pantalla, sin cuentas con
+ * `100vw` — que además nunca cuadran, porque `100vw` incluye la barra de
+ * scroll y el ancho real del contenido no.
+ *
+ * `max()` deja el canal lateral en `--gutter` mientras la pantalla sea más
+ * estrecha que `--shell`, y a partir de ahí lo abre hasta centrar la columna.
+ * El `+ --gutter` mantiene la medida de texto idéntica a la de `.shell`
+ * (`--shell` menos sus dos canales), que es la que usan la barra y el pie.
+ */
+.section {
+  position: relative;
+  width: 100%;
+  /*
+   * El inicio deja libre el desborde del halo de la sección anterior (40px,
+   * ver Aurora): con menos, el eyebrow caía dentro del halo de arriba.
+   */
+  padding-block: clamp(40px, 4.8vw, 60px) var(--section-y);
+  padding-inline: max(var(--gutter), (100% - var(--shell)) / 2 + var(--gutter));
+}
+
+.section--first {
+  padding-block-start: var(--section-y);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--dim);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 11px;
+}
+
+.chip--mono {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+/* Grilla fluida: las tarjetas se reacomodan solas sin media queries. */
+.autoGrid {
+  display: grid;
+  gap: clamp(12px, 1.8vw, 18px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min, 300px)), 1fr));
+}

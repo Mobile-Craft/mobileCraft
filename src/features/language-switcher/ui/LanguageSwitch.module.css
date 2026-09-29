@@ -1,0 +1,47 @@
+.group {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  flex: none;
+}
+
+.option {
+  position: relative;
+  min-width: 34px;
+  height: 28px;
+  padding-inline: 8px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition:
+    background-color var(--dur-base) ease,
+    color var(--dur-base) ease;
+}
+
+.option:hover {
+  color: var(--text);
+}
+
+.option[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/*
+ * El botón mide 28px de alto por diseño; esta capa invisible lo lleva al
+ * mínimo táctil de 44px sin empujar la barra ni solapar al vecino.
+ */
+.option::after {
+  content: '';
+  position: absolute;
+  inset-block: -8px;
+  inset-inline: 0;
+}

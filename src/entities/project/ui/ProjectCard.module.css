@@ -1,0 +1,152 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.6vw, 26px);
+  height: 100%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: clamp(22px, 3.2vw, 36px) clamp(22px, 3.2vw, 36px) 0;
+  overflow: hidden;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+
+.card:hover,
+.card:has(.trigger:focus-visible) {
+  border-color: var(--accent);
+}
+
+/* El anillo de foco se dibuja en la tarjeta, no en el texto del título. */
+.card:has(.trigger:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    340px circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    var(--accent-soft),
+    transparent 72%
+  );
+  transition: opacity 300ms ease;
+}
+
+.card:hover .glow,
+.card:has(.trigger:focus-visible) .glow {
+  opacity: 1;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  transform: translateZ(28px);
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.name {
+  font-size: clamp(26px, 3.6vw, 34px);
+  letter-spacing: -0.032em;
+  margin-bottom: 6px;
+}
+
+/*
+ * El área clicable es la tarjeta entera; este botón sólo aporta la semántica y
+ * el punto de foco del teclado. No se usa un ::after estirado porque `.head`
+ * lleva `translateZ` y, al ser un ancestro con transform, se convierte en el
+ * bloque contenedor: el overlay se quedaba recortado al encabezado y dejaba
+ * muerta la mitad inferior de la tarjeta.
+ */
+.trigger {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+}
+
+.org {
+  font-size: 14.5px;
+  color: var(--dim);
+}
+
+.status {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 11px;
+  white-space: nowrap;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--faint);
+}
+
+.what {
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: var(--dim);
+  max-width: 52ch;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.ctaArrow {
+  display: inline-block;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.card:hover .ctaArrow {
+  transform: translate(3px, -3px);
+}
+
+.device {
+  display: grid;
+  place-items: center;
+  margin-top: auto;
+  transform: translateZ(46px);
+}
+
+.phone {
+  --phone-width: min(62%, 250px);
+  margin-bottom: clamp(22px, 3.2vw, 36px);
+}

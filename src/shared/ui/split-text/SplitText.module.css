@@ -1,0 +1,11 @@
+.line {
+  display: block;
+  perspective: 800px;
+}
+
+.word {
+  display: inline-block;
+  white-space: pre;
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+}

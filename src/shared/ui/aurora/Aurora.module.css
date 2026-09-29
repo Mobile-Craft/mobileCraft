@@ -1,0 +1,61 @@
+/**
+ * Halos de color de fondo.
+ *
+ * Todos los halos de una sección se pintan en UNA sola capa, como varios
+ * `radial-gradient` apilados. La primera versión usaba un div con `filter:
+ * blur()` por halo: eso son cuatro capas compuestas por sección, ~20 en toda la
+ * página, y el compositor no da abasto al hacer scroll. Un degradado radial ya
+ * es suave por definición, así que el desenfoque no aportaba nada que valiera
+ * ese precio.
+ */
+.aurora {
+  position: absolute;
+  /*
+   * La sección contenedora ocupa todo el ancho (ver `.section` en global.css),
+   * así que basta con pegarse a sus bordes: los halos llegan al borde de la
+   * pantalla en cualquier resolución y nunca generan scroll horizontal.
+   */
+  inset-block: -40px;
+  inset-inline: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  contain: layout paint;
+  /*
+   * El halo desborda 40px hacia las secciones vecinas y `overflow: hidden` lo
+   * cortaba en seco: quedaba una línea horizontal justo a la altura del
+   * eyebrow de la sección siguiente, que parecía pertenecer a la de arriba.
+   * Se desvanece en los 40px de desborde más otros tantos hacia dentro.
+   */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 80px,
+    #000 calc(100% - 80px),
+    transparent
+  );
+}
+
+.layer {
+  position: absolute;
+  inset: -10%;
+  background-repeat: no-repeat;
+}
+
+/* Sólo el hero respira: una capa, un transform, sin repintados. */
+.drift .layer {
+  animation: et-drift 30s ease-in-out infinite;
+}
+
+@keyframes et-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(3%, -4%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-3%, 3%, 0) scale(0.95);
+  }
+}
